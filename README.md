@@ -1,4 +1,4 @@
-# WindCast Analytics — Gridbricks Full Stack SWE Challenge v4
+# WindCast Analytics — Gridbricks Full Stack SWE Challenge 
 
 A React + Python FastAPI pilot web app to evaluate UK national wind generation forecasts against Elexon actual generation. January **2026 purchasing decisions**, including January 31 → February 1 delivery.
 
