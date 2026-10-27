@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: ./backend
+    environment:
+      CORS_ORIGINS: http://localhost:8080,http://127.0.0.1:8080
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=5)"]
+      interval: 30s
+      timeout: 6s
+      retries: 3
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: /windcast-proxy
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
